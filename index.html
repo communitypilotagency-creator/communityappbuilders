@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Community App Builders | Your own branded community app, done for you</title>
+<meta name="description" content="We build your branded community app for web, iPhone and Android, then hand you everything. Full build $12,000. Web app only $5,000. No monthly platform fees.">
+<meta property="og:title" content="Community App Builders">
+<meta property="og:description" content="Your own branded community app, built and handed to you. Web, iPhone and Android.">
+<meta property="og:image" content="https://communityappbuilders.com/vsl-poster.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23C8F135'/%3E%3Ctext x='32' y='44' font-size='36' font-family='Arial' font-weight='700' text-anchor='middle' fill='%230A0A0B'%3EC%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#09090B}
+a{color:#F4F4F5;text-decoration:none}a:hover{color:#FFFFFF}
+.cab *{box-sizing:border-box}
+.cab h1,.cab h2,.cab h3,.disp{font-family:'Bricolage Grotesque',Figtree,sans-serif}
+.cab input,.cab select,.cab button{font-family:Figtree,sans-serif}
+.dots{background-image:radial-gradient(rgba(255,255,255,0.09) 1px,transparent 1px);background-size:28px 28px;animation:drift 40s linear infinite}
+.orb{filter:blur(90px);animation:orb 18s ease-in-out infinite}
+.float1{animation:float 6s ease-in-out infinite}
+.float2{animation:float 7s ease-in-out 1.2s infinite}
+.float3{animation:float 8s ease-in-out 2.4s infinite}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.2s}.d3{animation-delay:.35s}.d4{animation-delay:.5s}
+.track{animation:marquee 36s linear infinite}
+.pulse{animation:pulse 2.2s ease-in-out infinite}
+.feat{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,background .35s}
+.feat:hover{transform:translateY(-6px);border-color:var(--accent);background:#141418}
+.feat:hover .ficon{background:var(--accent);color:#0A0A0B}
+.ficon{transition:background .35s,color .35s}
+.btn{transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px -10px var(--accent)}
+.ghost{transition:background .2s}
+.ghost:hover{background:rgba(255,255,255,0.08)}
+.opt{transition:border-color .2s,background .2s}
+.opt:hover{border-color:rgba(255,255,255,0.4)}
+.cab input:focus,.cab select:focus,.cab button:focus-visible,.cab a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cab details summary{list-style:none;cursor:pointer}
+.cab details summary::-webkit-details-marker{display:none}
+.cab details[open] .plus{transform:rotate(45deg)}
+.plus{transition:transform .25s}
+.motion-off *{animation:none !important}
+@media (prefers-reduced-motion: reduce){.cab *{animation:none !important}}
+@keyframes drift{from{background-position:0 0}to{background-position:280px 280px}}
+@keyframes orb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,40px) scale(1.15)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+.hc > div{justify-content:center}
+.vsl-btn{transition:transform .25s}
+#vsl-play:hover .vsl-btn{transform:scale(1.08)}
+@media (max-width:640px){.vsl-btn{width:76px!important;height:76px!important}}
+</style>
+
+<style>html{scroll-behavior:smooth}</style>
+</head>
+<body>
+<div id="root"></div>
+<template id="tpl">
+<div class="cab {{motionClass}}" style="--accent: {{accent}}; width: 100%; min-height: 100vh; background: #09090B; color: #F4F4F5; font-family: Figtree, system-ui, sans-serif; overflow: hidden">
+
+<!-- TOP BAR -->
+<div style="background: var(--accent); color: #0A0A0B; text-align: center; font-size: 14px; font-weight: 600; padding: 10px 16px">Straight pricing, no sales games. Full build $12,000. Web app only $5,000. <a href="#qualify" style="color: #0A0A0B; text-decoration: underline">See if you qualify</a></div>
+
+<!-- NAV -->
+<header style="position: relative; z-index: 5; max-width: 1240px; margin: 0 auto; padding: 22px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; gap: 10px">
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true"><circle cx="15" cy="7" r="4" fill="var(--accent)"></circle><circle cx="7" cy="22" r="4" stroke="#F4F4F5" stroke-width="2"></circle><circle cx="23" cy="22" r="4" stroke="#F4F4F5" stroke-width="2"></circle><path d="M13 10.5L9 18.5M17 10.5L21 18.5M11 22H19" stroke="#F4F4F5" stroke-width="2"></path></svg>
+<span class="disp" style="font-weight: 700; font-size: 19px; letter-spacing: -0.01em">Community App Builders</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
+<a href="#features" style="color: #C4C4CC">What's included</a>
+<a href="#how" style="color: #C4C4CC">How it works</a>
+<a href="#pricing" style="color: #C4C4CC">Pricing</a>
+<a href="#faq" style="color: #C4C4CC">FAQ</a>
+<a class="btn" href="#qualify" style="background: var(--accent); color: #0A0A0B; font-weight: 700; padding: 12px 20px; border-radius: 999px">Get started</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section id="top" style="position: relative; padding: 28px 24px 96px">
+<div class="dots" aria-hidden="true" style="position: absolute; inset: 0"></div>
+<div class="orb" aria-hidden="true" style="position: absolute; width: 520px; height: 520px; right: 6%; top: 40px; border-radius: 50%; background: #4F46E5; opacity: 0.28"></div>
+<div class="hc" style="position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; text-align: center">
+<p class="rise d1" style="display: inline-flex; align-items: center; gap: 10px; margin: 0 0 28px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.16); border-radius: 999px; font-size: 14px; color: #D4D4DA; background: rgba(255,255,255,0.05)"><span class="pulse" style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent)"></span>Done for you. Handed over. 100% yours.</p>
+<h1 class="rise d2" style="margin: 0; font-size: clamp(36px, 4.6vw, 66px); max-width: 940px; margin-left: auto !important; margin-right: auto !important; line-height: 0.95; letter-spacing: -0.04em; font-weight: 800">Your own community app, built and handed to you.</h1>
+<p class="rise d3" style="margin: 20px auto 0; max-width: 720px; font-size: 18px !important; font-size: 19px; line-height: 1.6; color: #B8B8C0">We build a branded community app for web, iPhone and Android on your domain and your accounts. Then we give you every key. No monthly platform fees, no lock in, no renting your members from someone else.</p>
+<div class="rise d3 vsl-wrap" style="margin: 30px auto 0; max-width: 1000px; position: relative; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.16); box-shadow: 0 40px 120px -30px rgba(0,0,0,0.9), 0 0 0 6px rgba(255,255,255,0.03); background: #000; aspect-ratio: 16 / 9">
+<video id="vsl" src="vsl.mp4" poster="vsl-poster.jpg" playsinline preload="metadata" style="width: 100%; height: 100%; display: block; object-fit: cover"></video>
+<button type="button" id="vsl-play" aria-label="Play the 2 minute video with sound" style="position: absolute; inset: 0; width: 100%; border: 0; cursor: pointer; background: linear-gradient(180deg, rgba(9,9,11,0.15), rgba(9,9,11,0.55)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; color: #fff">
+<span class="vsl-btn" style="width: 104px; height: 104px; border-radius: 50%; background: var(--accent); color: #0A0A0B; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 14px rgba(200,241,53,0.18)"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"></path></svg></span>
+<span style="font-family: Figtree, sans-serif; font-weight: 700; font-size: 18px; background: rgba(0,0,0,0.55); padding: 10px 18px; border-radius: 999px">Watch the 2 minute video (sound on)</span>
+</button>
+</div>
+<div class="rise d4" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px">
+<a class="btn" href="#qualify" style="display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #0A0A0B; font-weight: 700; font-size: 17px; padding: 18px 30px; border-radius: 999px">See if you qualify <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="ghost" href="#pricing" style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.22); font-weight: 600; font-size: 17px; padding: 18px 28px; border-radius: 999px">See pricing</a>
+</div>
+<div class="rise d4" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px">
+<div style="border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); border-radius: 18px; padding: 16px 20px"><p class="disp" style="margin: 0; font-size: 28px; font-weight: 700">$12,000</p><p style="margin: 2px 0 0; font-size: 14px; color: #A1A1AA">Full build. Best value, saves $2,000</p></div>
+<div style="border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); border-radius: 18px; padding: 16px 20px"><p class="disp" style="margin: 0; font-size: 28px; font-weight: 700">$5,000</p><p style="margin: 2px 0 0; font-size: 14px; color: #A1A1AA">Web app and admin only</p></div>
+<div style="border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); border-radius: 18px; padding: 16px 20px"><p class="disp" style="margin: 0; font-size: 28px; font-weight: 700">$0</p><p style="margin: 2px 0 0; font-size: 14px; color: #A1A1AA">Monthly fees to us, ever</p></div>
+</div>
+<div class="rise d4" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 28px"><span style="font-size: 14px; color: #A1A1AA">Your app, live in both stores:</span><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px"><span style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 18px 0 14px; border-radius: 12px; background: #000000; border: 1px solid rgba(255,255,255,0.35); color: #FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zM12 7v7M9 11l3 3 3-3"></path></svg><span style="display: flex; flex-direction: column; line-height: 1.1"><span style="font-size: 11px; color: #D4D4D8">Published to the</span><span style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em">App Store</span></span></span><span style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 18px 0 14px; border-radius: 12px; background: #000000; border: 1px solid rgba(255,255,255,0.35); color: #FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zM12 7v7M9 11l3 3 3-3"></path></svg><span style="display: flex; flex-direction: column; line-height: 1.1"><span style="font-size: 11px; color: #D4D4D8">Published to</span><span style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em">Google Play</span></span></span></div></div>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<section aria-label="Who it is for" style="border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 26px 0; overflow: hidden">
+<div class="track disp" style="display: flex; gap: 56px; width: max-content; font-size: 24px; font-weight: 600; color: #8A8A93; white-space: nowrap">
+<span>Coaches</span><span style="color: var(--accent)">✦</span><span>Creators</span><span style="color: var(--accent)">✦</span><span>Churches</span><span style="color: var(--accent)">✦</span><span>Alumni networks</span><span style="color: var(--accent)">✦</span><span>Diaspora groups</span><span style="color: var(--accent)">✦</span><span>Associations</span><span style="color: var(--accent)">✦</span><span>Masterminds</span><span style="color: var(--accent)">✦</span><span>Fitness studios</span><span style="color: var(--accent)">✦</span>
+<span>Coaches</span><span style="color: var(--accent)">✦</span><span>Creators</span><span style="color: var(--accent)">✦</span><span>Churches</span><span style="color: var(--accent)">✦</span><span>Alumni networks</span><span style="color: var(--accent)">✦</span><span>Diaspora groups</span><span style="color: var(--accent)">✦</span><span>Associations</span><span style="color: var(--accent)">✦</span><span>Masterminds</span><span style="color: var(--accent)">✦</span><span>Fitness studios</span><span style="color: var(--accent)">✦</span>
+</div>
+</section>
+
+<!-- PROBLEM -->
+<section style="padding: 120px 32px">
+<div style="max-width: 1240px; margin: 0 auto">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent)">Why your own app</p>
+<h2 style="margin: 16px 0 0; max-width: 860px; font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700">You built the community. Why are you still paying rent on it?</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 56px">
+<div style="border: 1px solid rgba(255,255,255,0.1); border-radius: 28px; padding: 36px; background: #0F0F12">
+<h3 style="margin: 0; font-size: 23px; font-weight: 600; color: #A1A1AA">Rented platforms</h3>
+<ul style="list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; font-size: 16px; color: #B8B8C0">
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 6l12 12M18 6L6 18"></path></svg>Monthly fees that never stop and grow as you grow</li>
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 6l12 12M18 6L6 18"></path></svg>Their logo, their rules, their algorithm</li>
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 6l12 12M18 6L6 18"></path></svg>Your member list lives in their database</li>
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 6l12 12M18 6L6 18"></path></svg>One policy change and your space is gone</li>
+</ul>
+</div>
+<div style="border: 1px solid var(--accent); border-radius: 28px; padding: 36px; background: #111114">
+<h3 style="margin: 0; font-size: 23px; font-weight: 600">Your own community app</h3>
+<ul style="list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; font-size: 16px; color: #E4E4E7">
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M5 12l4 4 10-10"></path></svg>Pay once for the build. Nothing monthly to us</li>
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M5 12l4 4 10-10"></path></svg>Your name, colors and domain on every screen</li>
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M5 12l4 4 10-10"></path></svg>Every member and every post in your own database</li>
+<li style="display: flex; gap: 12px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M5 12l4 4 10-10"></path></svg>An asset you own outright, for good</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" style="padding: 20px 32px 120px">
+<div style="max-width: 1240px; margin: 0 auto">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+<div>
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent)">What's included</p>
+<h2 style="margin: 16px 0 0; max-width: 740px; font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700">Everything below comes in the full build. No upsells.</h2>
+</div>
+<p style="margin: 0; max-width: 360px; font-size: 17px; line-height: 1.6; color: #A1A1AA">One app for your members. One admin panel for you. Built, branded, launched and handed over.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; margin-top: 56px">
+<sc-for list="{{features}}" as="f" hint-placeholder-count="9">
+<div class="feat" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 30px; background: #0F0F12">
+<div class="ficon" style="width: 48px; height: 48px; border-radius: 14px; background: rgba(255,255,255,0.06); color: var(--accent); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{f.icon}}"></path></svg>
+</div>
+<h3 style="margin: 22px 0 0; font-size: 21px; font-weight: 600">{{f.title}}</h3>
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: #A1A1AA">{{f.body}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="padding: 120px 32px; background: #0D0D10; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06)">
+<div style="max-width: 1240px; margin: 0 auto">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent)">How it works</p>
+<h2 style="margin: 16px 0 0; max-width: 780px; font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700">Four steps from first call to your own app.</h2>
+<ol style="list-style: none; margin: 64px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="position: relative; border-top: 2px solid rgba(255,255,255,0.12); padding: 28px 8px 0 0">
+<span style="position: absolute; top: -2px; left: 0; width: 56px; height: 2px; background: var(--accent)"></span>
+<p class="disp" style="margin: 0; font-size: 48px; font-weight: 800; color: var(--accent); letter-spacing: -0.03em">{{s.n}}</p>
+<h3 style="margin: 16px 0 0; font-size: 22px; font-weight: 600">{{s.title}}</h3>
+<p style="margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: #A1A1AA">{{s.body}}</p>
+</li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding: 120px 32px">
+<div style="max-width: 1040px; margin: 0 auto">
+<div style="text-align: center">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent)">Pricing</p>
+<h2 style="margin: 16px auto 0; max-width: 760px; font-size: clamp(38px, 4.6vw, 64px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700">Pay once. Own it. Save $2,000 doing it all at once.</h2>
+<p style="margin: 18px auto 0; max-width: 600px; font-size: 17px; line-height: 1.6; color: #A1A1AA">We show our prices up front so you know right away if this is for you. After handover, the only costs are your own hosting, database and app store accounts, paid straight to those providers.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-top: 56px">
+<div style="display: flex; flex-direction: column; border: 2px solid var(--accent); background: #131317; border-radius: 30px; padding: 40px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px"><h3 style="margin: 0; font-size: 26px; font-weight: 700">Full Build</h3><span style="background: var(--accent); color: #0A0A0B; font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px">Best value: save $2,000</span></div>
+<p style="margin: 10px 0 0; font-size: 15px; color: #A1A1AA">Web, iPhone and Android, fully handed over.</p>
+<div style="margin-top: 20px; border-radius: 16px; padding: 14px 16px; background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.22); font-size: 14px; line-height: 1.55; color: #E4E4E7">Doing it in two steps costs $14,000 ($5,000 web now, $9,000 mobile later). Doing it all at once costs $12,000. <strong style="color: var(--accent)">You keep $2,000.</strong></div>
+<p class="disp" style="margin: 26px 0 0; font-size: 60px; font-weight: 800; letter-spacing: -0.04em">$12,000</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #A1A1AA">50% to start, 50% at handover. No monthly fees.</p>
+<ul style="list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-direction: column; gap: 13px; font-size: 15px; color: #E4E4E7; flex: 1">
+<sc-for list="{{fullItems}}" as="it" hint-placeholder-count="8"><li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M5 12l4 4 10-10"></path></svg>{{it}}</li></sc-for>
+</ul>
+<div style="margin-top: 28px"><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px"><span style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 18px 0 14px; border-radius: 12px; background: #000000; border: 1px solid rgba(255,255,255,0.35); color: #FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zM12 7v7M9 11l3 3 3-3"></path></svg><span style="display: flex; flex-direction: column; line-height: 1.1"><span style="font-size: 11px; color: #D4D4D8">Published to the</span><span style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em">App Store</span></span></span><span style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 18px 0 14px; border-radius: 12px; background: #000000; border: 1px solid rgba(255,255,255,0.35); color: #FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zM12 7v7M9 11l3 3 3-3"></path></svg><span style="display: flex; flex-direction: column; line-height: 1.1"><span style="font-size: 11px; color: #D4D4D8">Published to</span><span style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em">Google Play</span></span></span></div></div>
+<a class="btn" href="#qualify" style="display: block; text-align: center; margin-top: 28px; background: var(--accent); color: #0A0A0B; font-weight: 700; font-size: 16px; padding: 17px 24px; border-radius: 999px">Start my full build and save $2,000</a>
+</div>
+<div style="display: flex; flex-direction: column; border: 1px solid rgba(255,255,255,0.12); background: #0F0F12; border-radius: 30px; padding: 40px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">Web App Only</h3>
+<p style="margin: 10px 0 0; font-size: 15px; color: #A1A1AA">Start on the web. Add iPhone and Android later for $9,000.</p>
+<p class="disp" style="margin: 26px 0 0; font-size: 60px; font-weight: 800; letter-spacing: -0.04em">$5,000</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #A1A1AA">50% to start, 50% at handover. No monthly fees.</p>
+<ul style="list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-direction: column; gap: 13px; font-size: 15px; color: #E4E4E7; flex: 1">
+<sc-for list="{{webItems}}" as="it" hint-placeholder-count="6"><li style="display: flex; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M5 12l4 4 10-10"></path></svg>{{it}}</li></sc-for>
+<li style="display: flex; gap: 10px; color: #8A8A93"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#71717A" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 6l12 12M18 6L6 18"></path></svg>iPhone and Android apps not included</li>
+<li style="margin-top: 6px; font-size: 14px; line-height: 1.55; color: #A1A1AA">Want mobile eventually? Adding it later is $9,000, so the full build saves you $2,000.</li>
+</ul>
+<a class="ghost" href="#qualify" style="display: block; text-align: center; margin-top: 32px; border: 1px solid rgba(255,255,255,0.24); font-weight: 700; font-size: 16px; padding: 17px 24px; border-radius: 999px">Start with the web app</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QUALIFYING FORM -->
+<section id="qualify" style="position: relative; padding: 120px 32px; background: #0D0D10; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06)">
+<div class="orb" aria-hidden="true" style="position: absolute; width: 460px; height: 460px; left: -120px; top: 120px; border-radius: 50%; background: var(--accent); opacity: 0.12"></div>
+<div style="position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 1 1 380px; min-width: 0">
+<p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent)">Get started</p>
+<h2 style="margin: 16px 0 0; font-size: clamp(38px, 4.4vw, 60px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700">See if we're a fit in 60 seconds.</h2>
+<p style="margin: 22px 0 0; max-width: 440px; font-size: 17px; line-height: 1.65; color: #B8B8C0">Five quick questions. If it's a match you'll pick a call time right away. If it's not, we'll tell you straight so nobody's time gets wasted.</p>
+<div style="margin-top: 32px; border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 24px; background: rgba(255,255,255,0.03)">
+<p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A1A1AA">The only two options</p>
+<div style="display: flex; justify-content: space-between; gap: 16px; margin-top: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.1)"><span style="font-size: 16px">Full build: web, admin, CRM, iPhone, Android <strong style="color: var(--accent); white-space: nowrap">Saves $2,000</strong></span><span class="disp" style="font-size: 20px; font-weight: 700">$12,000</span></div>
+<div style="display: flex; justify-content: space-between; gap: 16px; margin-top: 14px"><span style="font-size: 16px">Web app and admin only (mobile later is $9,000)</span><span class="disp" style="font-size: 20px; font-weight: 700">$5,000</span></div>
+<p style="margin: 16px 0 0; font-size: 14px; line-height: 1.55; color: #A1A1AA">Half to start, half at handover. Everything handed over. No monthly fees to us.</p>
+</div>
+</div>
+
+<div style="flex: 1 1 560px; min-width: 0; border: 1px solid rgba(255,255,255,0.14); border-radius: 30px; background: #121216; padding: clamp(24px, 4vw, 44px)">
+<sc-if value="{{showSteps}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 14px; color: #A1A1AA"><span>Step {{stepNum}} of 5</span><span>{{stepLabel}}</span></div>
+<div style="height: 6px; border-radius: 999px; background: rgba(255,255,255,0.08); margin-top: 12px; overflow: hidden"><div style="{{progressStyle}}"></div></div>
+</sc-if>
+
+<sc-if value="{{isStep0}}" hint-placeholder-val="{{ true }}">
+<h3 style="margin: 32px 0 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Which build are you interested in?</h3>
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px">
+<sc-for list="{{buildOpts}}" as="o" hint-placeholder-count="3"><button type="button" class="opt" onClick="{{o.pick}}" style="{{o.style}}"><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; font-weight: 700">{{o.label}}</span><span style="font-size: 14px; color: #A1A1AA">{{o.sub}}</span></span><span class="disp" style="font-size: 20px; font-weight: 700">{{o.price}}</span></button></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isStep1}}" hint-placeholder-val="{{ false }}">
+<h3 style="margin: 32px 0 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">What budget do you have set aside for this?</h3>
+<p style="margin: 10px 0 0; font-size: 15px; color: #A1A1AA">Reminder: full build is $12,000, web app only is $5,000.</p>
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px">
+<sc-for list="{{budgetOpts}}" as="o" hint-placeholder-count="3"><button type="button" class="opt" onClick="{{o.pick}}" style="{{o.style}}"><span style="font-size: 17px; font-weight: 700">{{o.label}}</span><span style="font-size: 14px; color: #A1A1AA">{{o.sub}}</span></button></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isStep2}}" hint-placeholder-val="{{ false }}">
+<h3 style="margin: 32px 0 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">When do you want to launch?</h3>
+<div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px">
+<sc-for list="{{timeOpts}}" as="o" hint-placeholder-count="3"><button type="button" class="opt" onClick="{{o.pick}}" style="{{o.style}}"><span style="font-size: 17px; font-weight: 700">{{o.label}}</span></button></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isStep3}}" hint-placeholder-val="{{ false }}">
+<h3 style="margin: 32px 0 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Tell us about your community.</h3>
+<p style="margin: 24px 0 10px; font-size: 15px; font-weight: 600">What kind of community is it?</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{typeOpts}}" as="o" hint-placeholder-count="6"><button type="button" class="opt" onClick="{{o.pick}}" style="{{o.chip}}">{{o.label}}</button></sc-for>
+</div>
+<p style="margin: 24px 0 10px; font-size: 15px; font-weight: 600">How many members do you have today?</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{sizeOpts}}" as="o" hint-placeholder-count="4"><button type="button" class="opt" onClick="{{o.pick}}" style="{{o.chip}}">{{o.label}}</button></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isStep4}}" hint-placeholder-val="{{ false }}">
+<h3 style="margin: 32px 0 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Where should we send your next step?</h3>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="q-name" style="font-size: 14px; font-weight: 600">Full name</label><input id="q-name" type="text" autocomplete="name" style="height: 52px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.16); background: #0B0B0E; color: #F4F4F5; padding: 0 16px; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="q-email" style="font-size: 14px; font-weight: 600">Email</label><input id="q-email" type="email" autocomplete="email" style="height: 52px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.16); background: #0B0B0E; color: #F4F4F5; padding: 0 16px; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="q-phone" style="font-size: 14px; font-weight: 600">Phone (optional)</label><input id="q-phone" type="tel" autocomplete="tel" style="height: 52px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.16); background: #0B0B0E; color: #F4F4F5; padding: 0 16px; font-size: 16px"></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="q-site" style="font-size: 14px; font-weight: 600">Website or social link</label><input id="q-site" type="url" style="height: 52px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.16); background: #0B0B0E; color: #F4F4F5; padding: 0 16px; font-size: 16px"></div>
+</div>
+<p style="margin: 18px 0 0; font-size: 13px; color: #8A8A93">We only use this to follow up about your build. No spam, ever.</p>
+</sc-if>
+
+<sc-if value="{{showSteps}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 32px">
+<sc-if value="{{canBack}}" hint-placeholder-val="{{ false }}"><button type="button" class="ghost" onClick="{{back}}" style="min-height: 52px; padding: 0 22px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #F4F4F5; font-size: 16px; font-weight: 600; cursor: pointer">Back</button></sc-if>
+<sc-if value="{{noBack}}" hint-placeholder-val="{{ true }}"><span></span></sc-if>
+<button type="button" class="btn" onClick="{{next}}" style="{{nextStyle}}">{{nextLabel}}</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isResult}}" hint-placeholder-val="{{ false }}">
+<div style="{{resultBadgeStyle}}"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="{{resultIcon}}"></path></svg></div>
+<h3 style="margin: 24px 0 0; font-size: 32px; font-weight: 700; letter-spacing: -0.025em">{{resultTitle}}</h3>
+<p style="margin: 14px 0 0; font-size: 17px; line-height: 1.65; color: #B8B8C0">{{resultBody}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px">
+<a class="btn" href="#qualify" style="display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #0A0A0B; font-weight: 700; font-size: 16px; padding: 17px 28px; border-radius: 999px">{{resultCta}}</a>
+<button type="button" class="ghost" onClick="{{restart}}" style="min-height: 56px; padding: 0 24px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #F4F4F5; font-size: 16px; font-weight: 600; cursor: pointer">Change my answers</button>
+</div>
+</sc-if>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding: 120px 32px">
+<div style="max-width: 880px; margin: 0 auto">
+<h2 style="margin: 0; text-align: center; font-size: clamp(38px, 4.6vw, 60px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700">Questions, answered.</h2>
+<div style="margin-top: 48px; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{faqs}}" as="q" hint-placeholder-count="7">
+<details style="border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; background: #0F0F12; padding: 0 26px">
+<summary style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; font-size: 18px; font-weight: 600">{{q.q}}<svg class="plus" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.2" aria-hidden="true" style="flex: none"><path d="M12 5v14M5 12h14"></path></svg></summary>
+<p style="margin: 0; padding: 0 0 24px; font-size: 16px; line-height: 1.65; color: #A1A1AA">{{q.a}}</p>
+</details>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="position: relative; padding: 40px 32px 120px">
+<div style="position: relative; max-width: 1240px; margin: 0 auto; border-radius: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,0.14); background: #101013">
+<div class="orb" aria-hidden="true" style="position: absolute; width: 480px; height: 480px; left: -80px; top: -120px; border-radius: 50%; background: var(--accent); opacity: 0.26"></div>
+<div class="orb" aria-hidden="true" style="position: absolute; width: 420px; height: 420px; right: -60px; bottom: -160px; border-radius: 50%; background: #4F46E5; opacity: 0.32; animation-delay: -6s"></div>
+<div class="dots" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.6"></div>
+<div style="position: relative; padding: clamp(48px, 7vw, 96px) 32px; text-align: center; background: rgba(255,255,255,0.03); backdrop-filter: blur(20px)">
+<h2 style="margin: 0 auto; max-width: 860px; font-size: clamp(42px, 5.6vw, 80px); line-height: 0.98; letter-spacing: -0.04em; font-weight: 800">Stop renting. Start owning your community.</h2>
+<p style="margin: 24px auto 0; max-width: 560px; font-size: 18px; line-height: 1.6; color: #C4C4CC">Answer five questions and book your call. You'll know in under a minute if we're the right fit.</p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 40px">
+<a class="btn" href="#qualify" style="display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #0A0A0B; font-weight: 700; font-size: 17px; padding: 19px 34px; border-radius: 999px">See if you qualify <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding: 64px 32px 40px; border-top: 1px solid rgba(255,255,255,0.08)">
+<div style="max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px">
+<div style="max-width: 340px">
+<p class="disp" style="margin: 0; font-weight: 700; font-size: 21px">Community App Builders</p>
+<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: #A1A1AA">Done for you community apps for web, iPhone and Android. Built for you, owned by you.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 64px; font-size: 15px">
+<div style="display: flex; flex-direction: column; gap: 12px"><p style="margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8A8A93">Product</p><a href="#features" style="color: #C4C4CC">What's included</a><a href="#how" style="color: #C4C4CC">How it works</a><a href="#pricing" style="color: #C4C4CC">Pricing</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><p style="margin: 0 0 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8A8A93">Company</p><a href="#faq" style="color: #C4C4CC">FAQ</a><a href="#qualify" style="color: #C4C4CC">Get started</a><a href="mailto:hello@communityappbuilders.com" style="color: #C4C4CC">Contact</a></div>
+</div>
+</div>
+<div style="max-width: 1240px; margin: 56px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8A8A93">
+<span>© 2026 Community App Builders</span><span>communityappbuilders.com</span>
+</div>
+</footer>
+
+</div>
+</template>
+<script>
+class DCLogic{constructor(props){this.props=props||{};this.state={}}setState(p){Object.assign(this.state,p);render()}}
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 0, build: null, budget: null, timeline: null, type: null, size: null };
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#C8F135';
+    const motion = this.props.motion ?? true;
+    const s = this.state;
+    const optBase = 'display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 64px; text-align: left; padding: 18px 22px; border-radius: 18px; color: #F4F4F5; cursor: pointer; ';
+    const optStyle = (on) => optBase + (on ? 'border: 2px solid ' + accent + '; background: rgba(255,255,255,0.06);' : 'border: 1px solid rgba(255,255,255,0.14); background: #0B0B0E;');
+    const chipStyle = (on) => 'min-height: 46px; padding: 0 18px; border-radius: 999px; font-size: 15px; font-weight: 600; cursor: pointer; ' + (on ? 'border: 2px solid ' + accent + '; background: ' + accent + '; color: #0A0A0B;' : 'border: 1px solid rgba(255,255,255,0.18); background: #0B0B0E; color: #F4F4F5;');
+    const mk = (key, list) => list.map((o) => ({ ...o, style: optStyle(s[key] === o.id), chip: chipStyle(s[key] === o.id), pick: () => this.setState({ [key]: o.id }) }));
+
+    const buildOpts = mk('build', [
+      { id: 'full', label: 'Full build (best value)', sub: 'Web, admin, CRM, iPhone and Android. Saves $2,000 vs adding mobile later', price: '$12,000' },
+      { id: 'web', label: 'Web app only', sub: 'Web app and admin panel, add mobile later for $9,000', price: '$5,000' },
+      { id: 'unsure', label: 'Not sure yet', sub: 'Help me decide on the call', price: '' }
+    ]);
+    const budgetOpts = mk('budget', [
+      { id: 'high', label: '$12,000 or more', sub: 'Ready for the full build' },
+      { id: 'mid', label: '$5,000 to $11,999', sub: 'Ready for the web app build' },
+      { id: 'low', label: 'Under $5,000', sub: 'Not ready to invest at these prices yet' }
+    ]);
+    const timeOpts = mk('timeline', [
+      { id: 'now', label: 'As soon as possible' },
+      { id: 'soon', label: 'In the next 1 to 3 months' },
+      { id: 'later', label: 'Just exploring for now' }
+    ]);
+    const typeOpts = mk('type', [
+      { id: 'coach', label: 'Coaching' }, { id: 'creator', label: 'Creator' }, { id: 'church', label: 'Church or faith' },
+      { id: 'assoc', label: 'Association' }, { id: 'diaspora', label: 'Diaspora or cultural' }, { id: 'other', label: 'Something else' }
+    ]);
+    const sizeOpts = mk('size', [
+      { id: 'a', label: 'Just starting' }, { id: 'b', label: 'Under 500' }, { id: 'c', label: '500 to 5,000' }, { id: 'd', label: '5,000+' }
+    ]);
+
+    const answered = [s.build, s.budget, s.timeline, s.type && s.size, true][s.step];
+    const labels = ['Your build', 'Your budget', 'Your timeline', 'Your community', 'Your details'];
+    const next = () => {
+      if (!answered) return;
+      if (s.step === 1 && s.budget === 'low') { this.setState({ step: 5 }); return; }
+      this.setState({ step: s.step + 1 });
+    };
+
+    let resultTitle = '', resultBody = '', resultCta = '', good = true;
+    if (s.budget === 'low') {
+      good = false;
+      resultTitle = 'We’re probably not the right fit yet.';
+      resultBody = 'Thanks for being straight with us. Our builds start at $5,000, so we’d rather tell you now than waste your time on a call. Leave your email and we’ll let you know if we ever offer something at a lower price point.';
+      resultCta = 'Keep me posted';
+    } else if (s.budget === 'mid' && s.build !== 'web') {
+      resultTitle = 'The Web App build fits your budget.';
+      resultBody = 'At $5,000 you get your branded web app and admin panel on your own domain, fully handed over. You can add the iPhone and Android apps later for $9,000. If you can stretch to $12,000, the full build saves you $2,000. Pick a time and we’ll walk you through it.';
+      resultCta = 'Book my call';
+    } else {
+      resultTitle = 'You’re a great fit. Let’s talk.';
+      resultBody = s.build === 'web' ? 'You’re set for the $5,000 Web App build. Pick a time below and we’ll show you the live demo app and admin panel, and map out your launch.' : 'You’re set for the $12,000 Full Build. Pick a time below and we’ll show you the live demo app and admin panel, and map out your launch.';
+      resultCta = 'Pick a call time';
+    }
+
+    return {
+      accent,
+      motionClass: motion ? '' : 'motion-off',
+      isStep0: s.step === 0, isStep1: s.step === 1, isStep2: s.step === 2, isStep3: s.step === 3, isStep4: s.step === 4,
+      isResult: s.step === 5, showSteps: s.step < 5,
+      stepNum: s.step + 1, stepLabel: labels[Math.min(s.step, 4)],
+      progressStyle: 'height: 100%; border-radius: 999px; background: ' + accent + '; width: ' + (((Math.min(s.step, 4) + 1) / 5) * 100) + '%; transition: width .4s;',
+      canBack: s.step > 0, noBack: s.step === 0,
+      back: () => this.setState({ step: Math.max(0, s.step - 1) }),
+      next,
+      nextLabel: s.step === 4 ? 'See my result' : 'Continue',
+      nextStyle: 'min-height: 52px; padding: 0 30px; border-radius: 999px; border: none; font-size: 16px; font-weight: 700; cursor: pointer; ' + (answered ? 'background: ' + accent + '; color: #0A0A0B;' : 'background: rgba(255,255,255,0.1); color: #8A8A93;'),
+      restart: () => this.setState({ step: 0 }),
+      resultTitle, resultBody, resultCta,
+      resultIcon: good ? 'M5 12l4 4 10-10' : 'M12 8v5M12 16.5v.5M12 3a9 9 0 100 18 9 9 0 000-18z',
+      resultBadgeStyle: 'width: 60px; height: 60px; border-radius: 18px; display: flex; align-items: center; justify-content: center; margin-top: 8px; ' + (good ? 'background: ' + accent + '; color: #0A0A0B;' : 'background: rgba(255,255,255,0.08); color: #F4F4F5;'),
+      buildOpts, budgetOpts, timeOpts, typeOpts, sizeOpts,
+      fullItems: ['Branded web app on your domain', 'iPhone app in your name', 'Android app in your name', 'Admin panel to run everything', 'Member CRM and data in your database', 'Feed, groups, events, chat and push', 'Every account set up in your name', 'Full handover and admin walkthrough'],
+      webItems: ['Branded web app on your domain', 'Admin panel to run everything', 'Member CRM and data in your database', 'Feed, groups, events and chat', 'Full handover and admin walkthrough'],
+      features: [
+        { title: 'Member profiles and directory', body: 'Rich profiles so members can find and connect with each other.', icon: 'M16 21v-2a4 4 0 00-8 0v2M12 11a4 4 0 100-8 4 4 0 000 8M20 21v-2a4 4 0 00-3-3.9M4 21v-2a4 4 0 013-3.9' },
+        { title: 'Home feed', body: 'Wins, questions, photos and everything in between, from your people.', icon: 'M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z' },
+        { title: 'Groups', body: 'Smaller spaces for chapters, cohorts, interests or cities.', icon: 'M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z' },
+        { title: 'Events and RSVPs', body: 'Meetups, workshops and online sessions with RSVPs built in.', icon: 'M8 2v4M16 2v4M3 9h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z' },
+        { title: 'Messaging', body: 'Private one to one and group chat inside your own app.', icon: 'M21 12a8 8 0 01-11.6 7.1L4 21l1.9-5.4A8 8 0 1121 12z' },
+        { title: 'Push notifications', body: 'Reach members on their phones the moment something happens.', icon: 'M6 8a6 6 0 1112 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 004 0' },
+        { title: 'Admin panel and CRM', body: 'Approve members, moderate content and see who’s engaged.', icon: 'M3 3v18h18M7 15l4-4 3 3 5-6' },
+        { title: 'Invite only access', body: 'Keep it private with invite codes and member approval.', icon: 'M5 11h14v10H5zM8 11V7a4 4 0 018 0v4' },
+        { title: 'Web, iPhone and Android', body: 'One community, everywhere your members already are.', icon: 'M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zM11 18h2' }
+      ],
+      steps: [
+        { n: '01', title: 'Qualify and book', body: 'Answer five questions, then pick a call time. We show you the live demo app and admin.' },
+        { n: '02', title: 'Brand and build', body: 'We set up your app with your logo, colors, groups and content.' },
+        { n: '03', title: 'Launch on your accounts', body: 'It goes live on your domain, your database and your app store accounts.' },
+        { n: '04', title: 'Handover', body: 'You get every login, a walkthrough of your admin panel and full ownership.' }
+      ],
+      faqs: [
+        { q: 'Why do you show your prices up front?', a: 'Because your time matters. You know exactly what it costs before you ever talk to us, so every call is with someone who is ready.' },
+        { q: 'What exactly do I own after handover?', a: 'Everything. The code, the database, the domain, the admin panel and the app store listings all live in accounts registered to you. No licence, no lock in.' },
+        { q: 'Are there any ongoing costs?', a: 'Nothing to us. You pay your own hosting, database and app store accounts directly to those providers at their standard rates. We walk you through each one before you buy.' },
+        { q: 'Do I need technical skills?', a: 'No. We build, set up and launch it. You run your community from a simple admin panel, and we show you how at handover.' },
+        { q: 'How long does a build take?', a: 'Most builds are ready in [X WEEKS]. We confirm your timeline on the call.' },
+        { q: 'Can I start with the web app and add mobile later?', a: 'Yes. Start with the $5,000 Web App build and add the iPhone and Android apps later for $9,000. That comes to $14,000 in total, so if you know you want mobile, the full build saves you $2,000.' },
+        { q: 'How does payment work?', a: 'Half to start, half at handover. You pay 50% to book your build and the other 50% once everything is live and handed over to you.' }
+      ]
+    };
+  }
+}
+
+const tpl=document.getElementById('tpl');const root=document.getElementById('root');const comp=new Component({accent:'#C8F135',motion:true});
+function get(scope,expr){expr=expr.trim();if(expr==='true')return true;if(expr==='false')return false;return expr.split('.').reduce((o,k)=>o==null?undefined:o[k],scope)}
+function interp(str,scope){const m=str.match(/^\s*\{\{([^}]+)\}\}\s*$/);if(m)return get(scope,m[1]);return str.replace(/\{\{([^}]+)\}\}/g,(_,e)=>{const v=get(scope,e);return v==null?'':v})}
+function build(node,scope,out){
+ if(node.nodeType===3){out.appendChild(document.createTextNode(interp(node.nodeValue,scope)));return}
+ if(node.nodeType!==1)return;
+ const tag=node.tagName.toLowerCase();
+ if(tag==='sc-if'){if(interp(node.getAttribute('value'),scope))node.childNodes.forEach(c=>build(c,scope,out));return}
+ if(tag==='sc-for'){const list=interp(node.getAttribute('list'),scope)||[];const as=node.getAttribute('as');list.forEach(it=>{const s=Object.create(scope);s[as]=it;node.childNodes.forEach(c=>build(c,s,out))});return}
+ const el=node.namespaceURI==='http://www.w3.org/2000/svg'?document.createElementNS(node.namespaceURI,node.localName):document.createElement(node.localName);
+ for(const a of node.attributes){const v=interp(a.value,scope);if(/^on/i.test(a.name)){if(typeof v==='function')el.addEventListener(a.name.slice(2).toLowerCase(),v)}else if(v!==false&&v!=null)el.setAttribute(a.name,v)}
+ const kids=tag==='template'?node.content.childNodes:node.childNodes;kids.forEach(c=>build(c,scope,el));out.appendChild(el)}
+const keep={};
+function render(){
+ // keep typed values
+ root.querySelectorAll('input').forEach(i=>{if(i.id)keep[i.id]=i.value});
+ const y=window.scrollY;const vals=comp.renderVals();const frag=document.createDocumentFragment();
+ tpl.content.childNodes.forEach(c=>build(c,vals,frag));
+ const vid=document.getElementById('vsl');const state=vid?{t:vid.currentTime,p:!vid.paused}:null;
+ // keep hero (video) node stable: only replace the qualify section on rerender
+ if(root.childNodes.length&&document.getElementById('qualify')){const nq=frag.querySelector?null:null;const tmp=document.createElement('div');tmp.appendChild(frag);const newQ=tmp.querySelector('#qualify');document.getElementById('qualify').replaceWith(newQ);}
+ else{root.innerHTML='';root.appendChild(frag)}
+ root.querySelectorAll('input').forEach(i=>{if(i.id&&keep[i.id]!=null)i.value=keep[i.id]});
+ window.scrollTo(0,y);wire();
+}
+function wire(){
+ const v=document.getElementById('vsl'),b=document.getElementById('vsl-play');
+ if(v&&b&&!b.dataset.w){b.dataset.w=1;b.addEventListener('click',()=>{v.controls=true;v.play();b.style.display='none'});v.addEventListener('ended',()=>{document.getElementById('qualify')?.scrollIntoView({behavior:'smooth'})})}
+ // result CTA: email answers
+ document.querySelectorAll('#qualify a.btn').forEach(a=>{if(a.dataset.w)return;a.dataset.w=1;a.addEventListener('click',e=>{const s=comp.state;const g=id=>(document.getElementById(id)||{}).value||'';e.preventDefault();
+  const body=`Build: ${s.build||''}\nBudget: ${s.budget||''}\nTimeline: ${s.timeline||''}\nCommunity type: ${s.type||''}\nCommunity size: ${s.size||''}\nName: ${g('q-name')}\nEmail: ${g('q-email')}\nPhone: ${g('q-phone')}\nLink: ${g('q-site')}`;
+  window.location.href='mailto:hello@communityappbuilders.com?subject='+encodeURIComponent('Community app build: '+(g('q-name')||'new lead'))+'&body='+encodeURIComponent(body)})})
+}
+render();
+</script>
+</body>
+</html>
